@@ -1,0 +1,97 @@
+/* Asdale Dynamics - AI-Assisted Coding beginner manual site */
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #555555;
+  --line: #dddddd;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --code-bg: #f6f8fa;
+  --code-border: #e1e4e8;
+  --max-width: 700px;
+}
+* { box-sizing: border-box; }
+html { line-height: 1.6; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+}
+header {
+  background: var(--accent);
+  color: #fff;
+  padding: 28px 20px;
+  text-align: center;
+}
+header h1 { margin: 0 0 8px 0; font-size: 24px; font-weight: 700; }
+header p { margin: 0; font-size: 15px; opacity: 0.95; }
+.container { max-width: var(--max-width); margin: 0 auto; padding: 32px 20px; }
+nav {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+}
+nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+nav li { margin: 0; }
+nav a {
+  text-decoration: none;
+  color: var(--accent);
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+nav a:hover { background: #eef4ff; border-color: var(--accent); }
+h2 { font-size: 20px; margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+h3 { font-size: 16px; margin-top: 24px; margin-bottom: 8px; }
+p { margin: 0 0 14px 0; }
+ul, ol { margin: 6px 0 16px 0; padding-left: 24px; }
+li { margin-bottom: 6px; }
+a { color: var(--accent); }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  overflow-x: auto;
+  margin: 12px 0;
+}
+pre code { background: inherit; border: none; padding: 0; font-size: inherit; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0 20px 0; font-size: 14px; }
+th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; }
+th { background: var(--code-bg); font-weight: 700; }
+blockquote {
+  margin: 14px 0;
+  padding: 10px 16px;
+  border-left: 4px solid var(--line);
+  background: #fafafa;
+  color: var(--muted);
+}
+footer {
+  margin-top: 48px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+.highlight { background: #fffdf0; border: 1px solid #ffe7a8; border-radius: 6px; padding: 12px 14px; margin: 14px 0; }
+.checklist { list-style: none; padding-left: 0; }
+.checklist li { padding-left: 24px; text-indent: -24px; margin-bottom: 8px; }
+.checklist li::before { content: "☐ "; color: var(--accent); font-weight: 700; }
+.small { font-size: 13px; color: var(--muted); }
+@media (max-width: 600px) {
+  .container { padding: 20px 14px; }
+  header { padding: 20px 14px; }
+}

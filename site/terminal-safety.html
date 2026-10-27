@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terminal Safety — Asdale Dynamics, LLC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Terminal Safety</h1>
+<p><a href="index.html">← Back to manual</a> &nbsp;|&nbsp; Published by <strong>Asdale Dynamics, LLC</strong></p>
+</header>
+
+<div class="container">
+<p>The terminal (also called the command line, console, or shell) is where you
+type commands to your computer. It is powerful, and power means you can hurt
+things by mistake. This guide shows beginners how to use the terminal safely,
+especially when running AI-suggested commands.</p>
+
+<h2>The golden rule</h2>
+<p>Never paste and run a terminal command you don't understand. If the AI gives
+you a command, read it first. Ask the AI what each part does if you're unsure.</p>
+
+<h2>Commands that deserve extra caution</h2>
+<p>Treat these as "stop and think" commands:</p>
+<table>
+<thead>
+<tr><th>Command</th><th>What it can do</th><th>Why to be careful</th></tr>
+</thead>
+<tbody>
+<tr><td><code>rm</code> / <code>del</code></td><td>Deletes files or folders</td><td>Deleted files usually don't go to trash</td></tr>
+<tr><td><code>rm -rf</code></td><td>Deletes a folder and everything inside it</td><td>Can wipe your documents in one keystroke</td></tr>
+<tr><td><code>sudo</code> / <code>runas</code></td><td>Runs a command as administrator</td><td>Gives the command full system access</td></tr>
+<tr><td><code>pip install</code> / <code>npm install</code></td><td>Downloads and installs code from the internet</td><td>Runs other people's code on your machine</td></tr>
+<tr><td><code>curl ... | sh</code> / <code>wget ... | sh</code></td><td>Downloads a script and runs it immediately</td><td>You can't review the script before it runs</td></tr>
+<tr><td><code>chmod +x</code></td><td>Makes a file executable</td><td>Combined with running it, can launch anything</td></tr>
+<tr><td><code>format</code> / <code>diskpart</code></td><td>Erases a disk</td><td>Permanent data loss</td></tr>
+</tbody>
+</table>
+<p>If you see any of these in an AI suggestion, slow down and verify.</p>
+
+<h2>Safe ways to experiment</h2>
+
+<h3>Use a folder just for experiments</h3>
+<p>Create a folder you don't care about, and do your AI coding inside it:</p>
+<pre><code>mkdir ai-experiments
+cd ai-experiments
+</code></pre>
+<p>If something goes wrong, delete the whole folder. Your important files are
+untouched.</p>
+
+<h3>Use a virtual environment (Python)</h3>
+<p>Python projects can install libraries without touching your whole computer:</p>
+<pre><code>python -m venv .venv
+source .venv/bin/activate
+# On Windows: .venv\Scripts\activate
+</code></pre>
+<p>Now <code>pip install</code> only affects this folder, not your system.</p>
+
+<h3>Read before you run</h3>
+<p>If the AI says "run this command," ask:</p>
+<blockquote>
+What does this command do? Will it change or delete any files? Will it use the internet?
+</blockquote>
+<p>Only run it when the answer makes sense to you.</p>
+
+<h3>Undo plans</h3>
+<p>Before you run something that writes or deletes files, ask yourself: "How do I
+undo this?" If you can't answer, don't run it yet.</p>
+
+<h2>A safe first command session</h2>
+<p>Try these harmless commands to get comfortable:</p>
+<pre><code>pwd          # shows where you are
+ls           # lists files in the current folder
+cd ai-experiments  # moves into that folder
+mkdir test   # creates a folder called test
+</code></pre>
+<p>None of these can hurt your data.</p>
+
+<h2>If something goes wrong</h2>
+<ul>
+<li><strong>Don't panic.</strong> Most terminal mistakes are recoverable.</li>
+<li><strong>Don't run more commands to "fix it" blindly.</strong> That often makes it worse.</li>
+<li><strong>Close the terminal</strong> if you're unsure. Nothing running in it will continue.</li>
+<li><strong>Ask a human</strong> or search for the exact error message.</li>
+</ul>
+
+<h2>Your terminal safety checklist</h2>
+<ul class="checklist">
+<li>I understand what the command does</li>
+<li>I know whether it will delete, overwrite, or install anything</li>
+<li>I know whether it uses the internet</li>
+<li>I am working in an experiment folder, not among my important files</li>
+<li>I know how to undo what the command does</li>
+</ul>
+<p>If any box is unchecked, stop and ask.</p>
+
+<footer>
+<p class="small">Published by Asdale Dynamics, LLC. Plain English, step by step, never condescending.</p>
+</footer>
+</div>
+</body>
+</html>

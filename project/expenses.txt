@@ -1,0 +1,7 @@
+# My weekly expenses
+12.50
+3.75
+
+8.00
+not-a-number
+22.10

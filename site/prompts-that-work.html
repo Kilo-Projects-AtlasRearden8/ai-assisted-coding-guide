@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompts That Work — Asdale Dynamics, LLC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Prompts That Work</h1>
+<p><a href="index.html">← Back to manual</a> &nbsp;|&nbsp; Published by <strong>Asdale Dynamics, LLC</strong></p>
+</header>
+
+<div class="container">
+<p>The quality of AI-written code depends heavily on the quality of your request.
+This guide shows prompts that reliably produce useful, safe, beginner-friendly
+code — using free AI tools.</p>
+
+<h2>What makes a good prompt</h2>
+<p>Good AI coding prompts share these traits:</p>
+<ol>
+<li><strong>Specific</strong> — say what you want, what language, and what the input/output should be</li>
+<li><strong>Small</strong> — ask for one task at a time, not a whole app</li>
+<li><strong>Contextual</strong> — tell the AI your skill level and what you've tried</li>
+<li><strong>Safety-aware</strong> — say "don't use the internet" or "don't delete files" when that's what you want</li>
+<li><strong>Iterative</strong> — expect to refine the answer, not accept the first one</li>
+</ol>
+
+<h2>Prompt templates you can copy</h2>
+
+<h3>"Write a small script to do X"</h3>
+<blockquote>
+Write a Python script that reads a file called <code>expenses.txt</code>, where
+each line is an amount like <code>12.50</code>, and prints the total. Keep it
+under 30 lines. Do not use the internet. Do not write to any files. Explain each
+part in plain English.
+</blockquote>
+
+<h3>"Explain this code"</h3>
+<blockquote>
+Explain what this code does, line by line, in plain English. Then list any
+things that could go wrong if I run it:<br>
+<pre>[paste code here]</pre>
+</blockquote>
+
+<h3>"Fix this error"</h3>
+<blockquote>
+I'm running this Python script and getting this error:<br>
+<pre>[paste full error message]</pre>
+Here is my code:<br>
+<pre>[paste code]</pre>
+Please fix it and explain what changed. I'm a beginner, so keep the explanation simple.
+</blockquote>
+
+<h3>"Make this safer"</h3>
+<blockquote>
+Here is a script the AI wrote for me. Review it for safety problems:<br>
+1. Does it access the internet?<br>
+2. Does it write, delete, or modify files?<br>
+3. Does it use any libraries I'd need to install?<br>
+Rewrite it to be safer if needed:<br>
+<pre>[paste code here]</pre>
+</blockquote>
+
+<h3>"Break this down"</h3>
+<blockquote>
+I want to build [a budget tracker / a greeting card maker / etc.]. I'm a
+beginner. Break this into tiny steps I can do one at a time. For each step,
+give me the exact code and the exact command to run it.
+</blockquote>
+
+<h2>Prompting for free AI tools</h2>
+<p>Free AI tiers often have limits (fewer messages per day, slower responses, no
+file uploads). Work within them:</p>
+<ul>
+<li><strong>Keep prompts short</strong> — saves your message limit</li>
+<li><strong>Paste code instead of uploading files</strong> — works everywhere</li>
+<li><strong>Ask for one file at a time</strong> — easier to copy-paste</li>
+<li><strong>Save good answers</strong> — copy them into your own files so you don't lose them if you hit a message limit</li>
+</ul>
+
+<h2>Free AI tools you can try</h2>
+<table>
+<thead>
+<tr><th>Tool</th><th>Free tier</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td>GitHub Copilot (free tier)</td><td>Limited completions/month</td><td>Good inside VS Code</td></tr>
+<tr><td>Claude (Anthropic)</td><td>Daily message limit</td><td>Strong at code explanation</td></tr>
+<tr><td>ChatGPT (OpenAI)</td><td>Free model access</td><td>Good general coding help</td></tr>
+<tr><td>Local models (Ollama, etc.)</td><td>Completely free, offline</td><td>Runs on your own computer; see local AI guides</td></tr>
+</tbody>
+</table>
+<p>You do not need to pay for any of these to write code with AI as a beginner.</p>
+
+<h2>Anti-prompts — what not to ask</h2>
+<p>Avoid asking the AI to:</p>
+<ul>
+<li>"Write me a full website / app" (too big; you'll get code you can't understand)</li>
+<li>"Find my passwords" or "log into my accounts" (never share secrets)</li>
+<li>"Hack into..." or "bypass..." (harmful and against most AI policies)</li>
+<li>"Write code with my API key hard-coded" (never put keys in code)</li>
+</ul>
+
+<h2>Your prompting checklist</h2>
+<ul class="checklist">
+<li>I said what language I want</li>
+<li>I described the input and the expected output</li>
+<li>I asked for one small task</li>
+<li>I mentioned I'm a beginner</li>
+<li>I said whether internet or file access is allowed</li>
+<li>I read the code before running it (see reading-ai-code.html)</li>
+</ul>
+
+<footer>
+<p class="small">Published by Asdale Dynamics, LLC. Plain English, step by step, never condescending.</p>
+</footer>
+</div>
+</body>
+</html>

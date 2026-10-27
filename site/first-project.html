@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Project Walkthrough — Asdale Dynamics, LLC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>First Project Walkthrough</h1>
+<p><a href="index.html">← Back to manual</a> &nbsp;|&nbsp; Published by <strong>Asdale Dynamics, LLC</strong></p>
+</header>
+
+<div class="container">
+<p>This is your first real project: a tiny command-line tool that adds up a file
+of expenses and prints the total. We'll build it step by step with AI help, read
+the code, run it safely, and test it.</p>
+<p>The finished project lives in <code>project/</code>. You can follow along here,
+or just read the project files directly.</p>
+
+<h2>What we're building</h2>
+<p><strong>expense-total</strong> — a Python tool that:</p>
+<ul>
+<li>Reads a text file where each line is an amount (like <code>12.50</code>)</li>
+<li>Ignores blank lines and lines starting with <code>#</code></li>
+<li>Prints the total</li>
+<li>Prints an error message if the file is missing or has bad data</li>
+</ul>
+<p>Example:</p>
+<pre><code>$ python expense-total.py expenses.txt
+Total: $46.35
+</code></pre>
+
+<h2>Step 1: Set up a safe workspace</h2>
+<p>Create a folder just for this project. Everything you do here stays here.</p>
+<pre><code>mkdir my-first-project
+cd my-first-project
+</code></pre>
+<p>For Python, set up a virtual environment so installations don't touch the rest
+of your computer:</p>
+<pre><code>python -m venv .venv
+source .venv/bin/activate
+# On Windows: .venv\Scripts\activate
+</code></pre>
+
+<h2>Step 2: Ask the AI for the first version</h2>
+<p>Paste this into a free AI tool:</p>
+<blockquote>
+Write a Python script called expense-total.py that reads a text file whose
+path is given as a command-line argument. Each line of the file is an amount
+like 12.50. The script should print the total. Ignore blank lines and lines
+starting with #. If the file doesn't exist, print a friendly error. If a line
+isn't a valid number, skip it and print a warning. I'm a beginner — keep the
+code short and explain each part.
+</blockquote>
+<p>Copy the AI's answer into a file called <code>expense-total.py</code>.</p>
+
+<h2>Step 3: Read the code before running it</h2>
+<p>Open <code>expense-total.py</code> and read it line by line. Ask:</p>
+<ul>
+<li>Does it read the file I give it?</li>
+<li>Does it write or delete anything? (It shouldn't.)</li>
+<li>Does it use the internet? (It shouldn't.)</li>
+<li>Can I explain what each function does?</li>
+</ul>
+<p>If anything is unclear, paste it back to the AI and ask for an explanation.</p>
+
+<h2>Step 4: Create a test expenses file</h2>
+<p>Make a file called <code>expenses.txt</code>:</p>
+<pre><code># My weekly expenses
+12.50
+3.75
+
+8.00
+not-a-number
+22.10
+</code></pre>
+<p>The blank line, the comment (<code>#</code>), and the bad value
+(<code>not-a-number</code>) let us test that the script handles them correctly.</p>
+
+<h2>Step 5: Run it</h2>
+<pre><code>python expense-total.py expenses.txt
+</code></pre>
+<p>Expected output:</p>
+<pre><code>Warning: skipping invalid line: not-a-number
+Total: $46.35
+</code></pre>
+<p>(12.50 + 3.75 + 8.00 + 22.10 = 46.35)</p>
+
+<h2>Step 6: Test error handling</h2>
+<p>Run it on a file that doesn't exist:</p>
+<pre><code>python expense-total.py missing.txt
+</code></pre>
+<p>You should get a friendly error message, not a crash.</p>
+<p>Run it with no arguments:</p>
+<pre><code>python expense-total.py
+</code></pre>
+<p>You should get a usage message.</p>
+
+<h2>Step 7: Add tests</h2>
+<p>A test is a small program that checks your code works correctly. The project
+includes <code>test_expense_total.py</code> which uses Python's built-in
+<code>unittest</code>.</p>
+<p>Run the tests:</p>
+<pre><code>python -m unittest discover -s project -v
+</code></pre>
+<p>All tests should pass. If one fails, read the error and fix the code.</p>
+
+<h2>Step 8: Reflect</h2>
+<p>You just:</p>
+<ul>
+<li>Wrote code with AI help</li>
+<li>Read it before running</li>
+<li>Ran it in a safe folder</li>
+<li>Tested good input, bad input, and missing files</li>
+<li>Added automated tests</li>
+</ul>
+<p>That's the whole loop. Every future project is the same, just bigger.</p>
+
+<h2>The finished files</h2>
+<table>
+<thead>
+<tr><th>File</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>project/expense-total.py</code></td><td>The tool</td></tr>
+<tr><td><code>project/test_expense_total.py</code></td><td>Automated tests</td></tr>
+<tr><td><code>project/expenses.txt</code></td><td>Example input file</td></tr>
+<tr><td><code>project/README.md</code></td><td>How to run it</td></tr>
+</tbody>
+</table>
+
+<footer>
+<p class="small">Published by Asdale Dynamics, LLC. Plain English, step by step, never condescending.</p>
+</footer>
+</div>
+</body>
+</html>

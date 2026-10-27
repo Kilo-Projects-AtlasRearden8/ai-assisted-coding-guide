@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixing Errors — Asdale Dynamics, LLC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Fixing Errors</h1>
+<p><a href="index.html">← Back to manual</a> &nbsp;|&nbsp; Published by <strong>Asdale Dynamics, LLC</strong></p>
+</header>
+
+<div class="container">
+<p>Errors are normal. Every programmer gets them, every day. AI-written code gets
+them too. This guide shows you how to read an error message, fix the problem,
+and work with the AI to get unstuck — without panicking.</p>
+
+<h2>Errors are information, not failure</h2>
+<p>An error message is the computer telling you exactly what went wrong and where.
+It is not a judgment on your ability. Read it like a friend pointing out a
+typo.</p>
+
+<h2>How to read a Python error (example)</h2>
+<p>Say you run a script and see this:</p>
+<pre><code>Traceback (most recent call last):
+  File "greet.py", line 4, in &lt;module&gt;
+    print(greeting)
+NameError: name 'greeting' is not defined
+</code></pre>
+<p>Read it bottom-up:</p>
+<ul>
+<li><strong>Last line:</strong> <code>NameError: name 'greeting' is not defined</code><br>
+What: You used a variable called <code>greeting</code> that doesn't exist.<br>
+Fix: Define <code>greeting</code> before using it, or check the spelling.</li>
+<li><strong>Second-to-last line:</strong> <code>File "greet.py", line 4, in &lt;module&gt;</code><br>
+Where: The problem is in <code>greet.py</code> on line 4.</li>
+</ul>
+<p>The traceback lists each function call leading to the error, with the most
+recent (the actual failure) at the bottom. The bottom line is usually the most
+useful.</p>
+
+<h2>Common error types and what they mean</h2>
+<table>
+<thead>
+<tr><th>Error</th><th>Plain-English meaning</th><th>Typical fix</th></tr>
+</thead>
+<tbody>
+<tr><td><code>NameError</code></td><td>You used a name that hasn't been defined</td><td>Check spelling; define the variable first</td></tr>
+<tr><td><code>TypeError</code></td><td>You used a value in a way it doesn't support</td><td>Make sure you're passing the right kind of data</td></tr>
+<tr><td><code>FileNotFoundError</code></td><td>The program looked for a file that isn't there</td><td>Check the file path and spelling</td></tr>
+<tr><td><code>SyntaxError</code></td><td>The code has a typo the computer can't parse</td><td>Check parentheses, quotes, colons, indentation</td></tr>
+<tr><td><code>ImportError</code> / <code>ModuleNotFoundError</code></td><td>A library is missing or misspelled</td><td>Install it, or check the import name</td></tr>
+<tr><td><code>IndexError</code></td><td>You asked for an item that doesn't exist in a list</td><td>Check the list length before indexing</td></tr>
+<tr><td><code>KeyError</code></td><td>You asked for a dictionary key that isn't there</td><td>Use <code>.get()</code> or check the key exists</td></tr>
+</tbody>
+</table>
+
+<h2>The fix-it loop</h2>
+<ol>
+<li><strong>Read the error.</strong> Copy the full message.</li>
+<li><strong>Find the line.</strong> Look at the file and line number in the traceback.</li>
+<li><strong>Make one small change.</strong> Guess the smallest fix, not a rewrite.</li>
+<li><strong>Run again.</strong> See if the error changed or disappeared.</li>
+<li><strong>Repeat.</strong> Errors often come in waves; fixing one reveals the next.</li>
+</ol>
+<p>Never change ten things at once. You won't know which one helped.</p>
+
+<h2>Working with the AI to fix errors</h2>
+<p>Paste the error and your code back into the AI chat:</p>
+<blockquote>
+I'm getting this error:<br>
+<pre>[paste the full error message]</pre>
+Here is my code:<br>
+<pre>[paste your code]</pre>
+Can you help me fix it? Please explain what changed.
+</blockquote>
+<p>Tell the AI:</p>
+<ul>
+<li>What you expected to happen</li>
+<li>What actually happened</li>
+<li>The full error message (don't paraphrase)</li>
+<li>What you've already tried</li>
+</ul>
+
+<h2>Terminal safety while fixing</h2>
+<p>Some fixes involve running commands. See <a href="terminal-safety.html">terminal safety</a>
+before you run anything the AI suggests, especially <code>pip install</code>,
+<code>rm</code>, or anything with <code>sudo</code>.</p>
+
+<h2>When the AI's fix doesn't work</h2>
+<p>AI can suggest wrong fixes, just like it can write wrong code. If the AI's
+suggestion:</p>
+<ul>
+<li>Doesn't change the error</li>
+<li>Makes a new error appear</li>
+<li>Uses code you don't understand</li>
+</ul>
+<p>…then revert the change, paste the new error back to the AI, or ask a human.
+You are allowed to say "that didn't work, try again."</p>
+
+<h2>Your error-fixing checklist</h2>
+<ul class="checklist">
+<li>I read the full error message, especially the last line</li>
+<li>I found the file and line number</li>
+<li>I made one small change at a time</li>
+<li>I ran the code again after each change</li>
+<li>I understand what my fix actually did</li>
+<li>I did not run any dangerous terminal commands without checking them first</li>
+</ul>
+
+<footer>
+<p class="small">Published by Asdale Dynamics, LLC. Plain English, step by step, never condescending.</p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading AI-Written Code — Asdale Dynamics, LLC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Reading AI-Written Code</h1>
+<p><a href="index.html">← Back to manual</a> &nbsp;|&nbsp; Published by <strong>Asdale Dynamics, LLC</strong></p>
+</header>
+
+<div class="container">
+<p>AI can write code fast, but it can also write code that looks right and does
+something subtle you didn't intend. This guide teaches you how to read
+AI-written code before you run it, so you stay in control.</p>
+
+<h2>Why read the code at all?</h2>
+<p>You are the author. The AI is a typing assistant that happens to be very fast
+and very confident. Confident is not the same as correct.</p>
+<p>AI-written code can:</p>
+<ul>
+<li>Use libraries you don't have installed</li>
+<li>Reference files or folders that don't exist on your computer</li>
+<li>Contain subtle bugs that only show up with certain inputs</li>
+<li>Do things you didn't ask for (like reaching out to the internet)</li>
+</ul>
+<p>Reading the code first is how you catch these problems before they become
+your problems.</p>
+
+<h2>A three-step reading habit</h2>
+<p>Use these steps every time the AI hands you code.</p>
+
+<h3>1. Skim the whole file first</h3>
+<p>Read from top to bottom without trying to understand every line. Ask:</p>
+<ul>
+<li>What is this program supposed to do?</li>
+<li>Does it mention any file names, folder names, or website addresses?</li>
+<li>Does it import or install anything?</li>
+<li>How long is it? (A 500-line file for "hello world" is a red flag.)</li>
+</ul>
+
+<h3>2. Read it line by line</h3>
+<p>Look at each line and translate it into plain English in your head. If you
+can't explain what a line does, don't run it yet.</p>
+<p>Look specifically for:</p>
+<ul>
+<li><strong>Imports / <code>require</code> / <code>include</code></strong> — what outside code is being pulled in?</li>
+<li><strong>File operations</strong> — <code>open</code>, <code>write</code>, <code>delete</code>, <code>remove</code>. What files will it touch?</li>
+<li><strong>Network calls</strong> — <code>fetch</code>, <code>requests.get</code>, <code>urllib</code>. Is it contacting the internet?</li>
+<li><strong>Loops and conditions</strong> — does the logic match what you asked for?</li>
+<li><strong>Hard-coded values</strong> — passwords, API keys, specific usernames, file paths</li>
+</ul>
+
+<h3>3. Run it in a safe place first</h3>
+<p>Never run AI-written code on your main computer for the first time. See the
+<a href="terminal-safety.html">terminal safety guide</a> for how to test code
+safely.</p>
+
+<h2>Line-by-line example</h2>
+<p>Here is a tiny AI-written script, and how to read it.</p>
+<pre><code>import os
+import requests
+
+filename = "notes.txt"
+with open(filename, "w") as f:
+    f.write("Hello from AI")
+
+response = requests.get("https://example.com")
+print(response.text)
+</code></pre>
+<p>Reading it line by line:</p>
+<table>
+<thead>
+<tr><th>Line</th><th>What it does</th><th>Question to ask</th></tr>
+</thead>
+<tbody>
+<tr><td><code>import os</code></td><td>Pulls in the operating-system module</td><td>Do we actually need this? (Here, no.)</td></tr>
+<tr><td><code>import requests</code></td><td>Pulls in a library to fetch web pages</td><td>Is <code>requests</code> installed? Will it reach the internet?</td></tr>
+<tr><td><code>filename = "notes.txt"</code></td><td>Picks a file name</td><td>Will this overwrite a file I care about?</td></tr>
+<tr><td><code>open(filename, "w")</code></td><td>Opens <code>notes.txt</code> for writing</td><td><code>"w"</code> erases existing content. Is that okay?</td></tr>
+<tr><td><code>f.write("Hello from AI")</code></td><td>Writes text into the file</td><td>Fine, harmless.</td></tr>
+<tr><td><code>requests.get(...)</code></td><td>Downloads a web page</td><td>Does it need internet? Is that expected?</td></tr>
+<tr><td><code>print(response.text)</code></td><td>Prints the page content</td><td>Fine, just display.</td></tr>
+</tbody>
+</table>
+<p>This script creates a file and downloads a web page. If you only wanted a
+local note, the internet call is unexpected. You would ask the AI to remove it.</p>
+
+<h2>Questions to ask the AI about its code</h2>
+<p>You can paste the AI's code back into the chat and ask:</p>
+<ul>
+<li>"What does this line do?"</li>
+<li>"Does this code access the internet?"</li>
+<li>"Does this code write or delete any files?"</li>
+<li>"What could go wrong if I run this with bad input?"</li>
+<li>"Can you explain this without using jargon?"</li>
+</ul>
+<p>A good AI will explain itself. If it can't, that's a sign not to run the
+code.</p>
+
+<h2>Red flags — stop and ask</h2>
+<p>Stop and get a second opinion (from a friend, a forum, or a more experienced
+coder) if you see:</p>
+<ul>
+<li>Passwords, API keys, or tokens pasted into the code</li>
+<li><code>eval(</code>, <code>exec(</code>, or <code>compile(</code> with user input</li>
+<li>A command that deletes files (<code>rm</code>, <code>del</code>, <code>os.remove</code>, <code>shutil.rmtree</code>)</li>
+<li>A web address you don't recognize</li>
+<li>Code that installs other programs (<code>pip install</code>, <code>apt install</code>, <code>npm install</code>) without explaining why</li>
+</ul>
+
+<h2>Your checklist before running AI code</h2>
+<ul class="checklist">
+<li>I can explain what each line does</li>
+<li>I know what files it will read, write, or delete</li>
+<li>I know whether it uses the internet</li>
+<li>I have tested it in a safe, isolated place</li>
+<li>I know how to undo what it does (delete the output file, etc.)</li>
+</ul>
+<p>If you can't check every box, don't run it yet. Ask for help.</p>
+
+<footer>
+<p class="small">Published by Asdale Dynamics, LLC. Plain English, step by step, never condescending.</p>
+</footer>
+</div>
+</body>
+</html>
